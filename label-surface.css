@@ -1,0 +1,13 @@
+/* Curved silhouette and reflected light follow the same bottle surface. */
+.label-shell,.catalog-bottle .art-label{border-radius:50% / 3.5%;background:transparent;border:0;box-shadow:none}
+.stage .label-shell .art-label{border-radius:50% / 3.5%;background:transparent;box-shadow:none}
+.label-surface{position:absolute;inset:0;width:100%;height:100%;display:block}
+.surface-ready>img{opacity:0}
+.label-shell::after,.catalog-bottle .art-label::after{
+  content:'';position:absolute;inset:0;z-index:2;pointer-events:none;border-radius:inherit;box-shadow:none;
+  background:linear-gradient(90deg,transparent 15%,#fff0 calc(var(--label-glint,36%) - 12%),#fff2 var(--label-glint,36%),#fff0 calc(var(--label-glint,36%) + 11%),transparent 82%);
+}
+.label-shell::before,.catalog-bottle .art-label::before{
+  content:'';position:absolute;inset:0;z-index:3;pointer-events:none;border-radius:inherit;
+  box-shadow:inset 1px 0 2px #0d080766,inset -1px 0 2px #0d080766;
+}

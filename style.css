@@ -1,0 +1,764 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=DM+Sans:wght@400;500;600;700&family=UnifrakturCook:wght@700&display=swap');
+
+:root{
+    --bg:#131512;
+    --ink:#f5f4ed;
+    --accent:#d1ad65;
+    --label:#aa823b;
+    --muted:#b5b6ac;
+}
+
+*{
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+    scroll-padding-top:88px;
+}
+
+body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'DM Sans',Arial,sans-serif;
+    letter-spacing:0;
+}
+
+a{
+    color:inherit;
+    text-decoration:none;
+}
+
+button{
+    font:inherit;
+}
+
+a:focus-visible,
+button:focus-visible{
+    outline:2px solid var(--accent);
+    outline-offset:7px;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+header{
+    height:88px;
+    position:absolute;
+    z-index:10;
+    top:0;
+    width:100%;
+    padding:0 5%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    border-bottom:1px solid #ffffff22;
+}
+
+.wordmark{
+    font-family:'UnifrakturCook',Georgia,serif;
+    font-size:31px;
+    line-height:1;
+}
+
+.wordmark span{
+    font:600 10px 'DM Sans',sans-serif;
+    display:block;
+    text-align:center;
+    margin-top:7px;
+}
+
+nav{
+    display:flex;
+    gap:34px;
+    font-size:14px;
+}
+
+nav a{
+    padding:10px 0;
+    border-bottom:1px solid transparent;
+}
+
+nav a:hover{
+    border-color:var(--accent);
+}
+
+.header-place{
+    font-size:11px;
+    color:var(--muted);
+}
+
+/* =========================
+   EXPERIÊNCIA / HERO
+========================= */
+
+.experience{
+    height:330svh;
+    position:relative;
+}
+
+.stage{
+    position:sticky;
+    top:0;
+    height:100svh;
+    min-height:680px;
+    overflow:hidden;
+    background:var(--bg);
+    transition:background 1s;
+}
+
+.edition{
+    position:absolute;
+    top:125px;
+    left:5%;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-size:11px;
+    color:var(--accent);
+}
+
+.small-line{
+    height:1px;
+    width:30px;
+    background:currentColor;
+}
+
+h1{
+    position:absolute;
+    top:145px;
+    left:5%;
+    margin:0;
+    font-family:'UnifrakturCook',Georgia,serif;
+    font-size:76px;
+    font-weight:700;
+    z-index:2;
+}
+
+.giant-type{
+    position:absolute;
+    inset:26% 0 auto;
+    text-align:center;
+    font-family:'Barlow Condensed','Arial Narrow',Impact,sans-serif;
+    font-size:300px;
+    line-height:1;
+    font-weight:800;
+    color:var(--accent);
+    opacity:.10;
+    white-space:nowrap;
+    transition:color .8s,opacity .3s;
+}
+
+/* =========================
+   GARRAFA
+========================= */
+
+.product{
+    position:absolute;
+    top:13%;
+    left:50%;
+    height:77%;
+    max-height:820px;
+    aspect-ratio:2/3;
+    transform:translateX(-50%) rotate(-7deg);
+    z-index:3;
+    will-change:transform;
+    filter:drop-shadow(15px 22px 20px #0006);
+}
+
+.bottle{
+    width:100%;
+    height:100%;
+    display:block;
+}
+
+/* =========================
+   RÓTULO DO PESCOÇO
+========================= */
+
+.neck-label{
+    position:absolute;
+    top:19%;
+    left:42%;
+    width:17%;
+    height:5%;
+    display:grid;
+    place-items:center;
+
+    background:#d8b574;
+    border-top:2px solid #82632e;
+    border-bottom:2px solid #82632e;
+
+    color:#25241d;
+
+    font-family:Georgia,serif;
+    font-size:9px;
+    font-weight:bold;
+
+    transform:rotate(-1deg);
+}
+
+/* =========================
+   RÓTULO PRINCIPAL
+   IMAGEM ESTICADA NA VERTICAL SEM CORTE
+========================= */
+
+.bottle-label{
+    position:absolute;
+
+    /*
+    Mantém a largura do rótulo e aumenta a altura.
+    Como a imagem original é quadrada, ela será
+    esticada verticalmente para preencher esta área.
+    */
+    top:52.5%;
+    left:30%;
+    width:40%;
+    height:40%;
+
+    display:block;
+    overflow:hidden;
+
+    background:transparent;
+    border:0;
+    border-radius:6px;
+
+    box-shadow:
+        inset 10px 0 12px #0002,
+        inset -10px 0 12px #0002;
+}
+
+/* IMAGEM COMPLETA DO RÓTULO */
+.bottle-label > img{
+    display:block;
+
+    /*
+    A imagem ocupa exatamente o tamanho do contêiner.
+    object-fit:fill estica o arquivo quadrado na vertical
+    sem recortar nenhuma parte da arte.
+    */
+    width:100%;
+    height:100%;
+    object-fit:fill;
+    object-position:center;
+
+    mix-blend-mode:normal;
+
+    /*
+    Não usar scale(), scaleY() ou cover:
+    eles podem fazer a imagem ultrapassar a área e cortar.
+    */
+    transform:none;
+}
+
+/* Remove a faixa antiga porque a arte já está no PNG/JPG */
+.bottle-label .label-band,
+.label-band{
+    display:none;
+}
+
+/* textos antigos do rótulo */
+
+.label-name{
+    font:700 25px 'Barlow Condensed',Impact,sans-serif;
+}
+
+.label-detail{
+    font-size:5px;
+    padding-bottom:4px;
+}
+
+/* =========================
+   TEXTO ESQUERDO
+========================= */
+
+.intro{
+    position:absolute;
+    left:5%;
+    top:43%;
+    width:27%;
+    max-width:350px;
+    z-index:4;
+}
+
+.eyebrow{
+    font-size:11px;
+    color:var(--accent);
+    font-weight:600;
+}
+
+.intro h2{
+    font-family:'Barlow Condensed',Impact,sans-serif;
+    font-size:45px;
+    line-height:1.08;
+    font-weight:600;
+    margin:22px 0;
+}
+
+.intro > p:not(.eyebrow){
+    color:var(--muted);
+    font-size:15px;
+    line-height:1.8;
+}
+
+.explore{
+    margin-top:25px;
+    display:inline-flex;
+    align-items:center;
+    gap:32px;
+    font-size:13px;
+    border-bottom:1px solid #ffffff55;
+    padding:0 0 13px;
+}
+
+.explore span{
+    font-size:23px;
+    color:var(--accent);
+}
+
+/* =========================
+   INFORMAÇÕES DA CERVEJA
+========================= */
+
+.beer-info{
+    position:absolute;
+    right:5%;
+    top:48%;
+    width:22%;
+    max-width:260px;
+    z-index:4;
+}
+
+.counter{
+    font-size:12px;
+    color:var(--accent);
+}
+
+.beer-title{
+    font-family:'Barlow Condensed',Impact,sans-serif;
+    font-size:64px;
+    line-height:1;
+    margin:15px 0;
+}
+
+.beer-description{
+    font-size:15px;
+    line-height:1.8;
+    color:var(--muted);
+    min-height:82px;
+}
+
+.taste{
+    display:flex;
+    gap:20px;
+    color:var(--accent);
+    font-size:10px;
+    border-top:1px solid #ffffff25;
+    padding-top:18px;
+}
+
+/* =========================
+   PARTE INFERIOR
+========================= */
+
+.stage-bottom{
+    position:absolute;
+    bottom:35px;
+    left:5%;
+    right:5%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+    z-index:5;
+}
+
+.stage-bottom > span{
+    font-size:10px;
+    color:var(--muted);
+}
+
+.beer-select{
+    display:flex;
+    gap:25px;
+}
+
+.beer-select button{
+    border:0;
+    border-bottom:2px solid transparent;
+    background:none;
+    color:#8c9189;
+    padding:12px 0;
+    cursor:pointer;
+    font-size:11px;
+}
+
+.beer-select button span{
+    font-size:13px;
+    margin-left:5px;
+}
+
+.beer-select button[aria-pressed=true]{
+    color:var(--accent);
+    border-color:var(--accent);
+}
+
+.progress{
+    position:absolute;
+    left:0;
+    bottom:0;
+    width:100%;
+    height:3px;
+    background:var(--accent);
+    transform-origin:left;
+    transform:scaleX(0);
+    z-index:6;
+}
+
+.scroll-chapters{
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+    display:grid;
+    grid-template-rows:repeat(3,1fr);
+}
+
+/* =========================
+   ORIGEM
+========================= */
+
+.origin{
+    min-height:640px;
+    padding:100px 9%;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    align-items:center;
+    gap:100px;
+
+    background:#eceee8;
+    color:#18231e;
+}
+
+.origin-mark img{
+    display:block;
+    width:100%;
+    max-width:360px;
+    mix-blend-mode:multiply;
+    margin:auto;
+}
+
+.origin .eyebrow{
+    color:#73602c;
+}
+
+.origin h2{
+    font:600 64px/1.03 'Barlow Condensed',Impact,sans-serif;
+    margin:24px 0;
+}
+
+.origin p:not(.eyebrow){
+    font-size:16px;
+    line-height:1.8;
+    max-width:450px;
+    color:#506057;
+}
+
+.origin .explore{
+    border-color:#18231e66;
+}
+
+.origin .explore span{
+    color:#716033;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    padding:45px 5%;
+    display:flex;
+    align-items:center;
+    gap:35px;
+    justify-content:space-between;
+    background:#111511;
+}
+
+footer p{
+    font-size:11px;
+    color:#b5b6ac;
+    max-width:300px;
+    line-height:1.7;
+}
+
+.concept{
+    max-width:210px;
+}
+
+/* =========================
+   TELAS GRANDES
+========================= */
+
+@media(min-width:1600px){
+
+    h1{
+        font-size:100px;
+    }
+
+    .intro h2{
+        font-size:58px;
+    }
+
+    .giant-type{
+        font-size:400px;
+    }
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media(max-width:1000px){
+
+    .header-place{
+        display:none;
+    }
+
+    .intro{
+        width:26%;
+    }
+
+    .intro h2{
+        font-size:34px;
+    }
+
+    .beer-info{
+        width:22%;
+    }
+
+    .beer-title{
+        font-size:50px;
+    }
+
+    .product{
+        height:70%;
+        top:20%;
+    }
+
+    .giant-type{
+        font-size:230px;
+        top:32%;
+    }
+
+    .origin{
+        gap:50px;
+        padding:80px 6%;
+    }
+
+    .origin h2{
+        font-size:52px;
+    }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:650px){
+
+    header{
+        height:74px;
+        padding:0 6%;
+    }
+
+    .wordmark{
+        font-size:25px;
+    }
+
+    nav{
+        gap:20px;
+        font-size:12px;
+    }
+
+    .stage{
+        min-height:720px;
+    }
+
+    .experience{
+        height:350svh;
+    }
+
+    .edition{
+        top:96px;
+        left:6%;
+        font-size:9px;
+    }
+
+    h1{
+        top:123px;
+        left:6%;
+        font-size:53px;
+    }
+
+    .giant-type{
+        font-size:142px;
+        top:31%;
+    }
+
+    .product{
+        height:57%;
+        top:25%;
+        left:40%;
+        max-height:520px;
+    }
+
+    .intro{
+        top:192px;
+        left:6%;
+        width:85%;
+        max-width:none;
+    }
+
+    .intro .eyebrow,
+    .intro > p,
+    .intro h2{
+        display:none;
+    }
+
+    .intro .explore{
+        margin:0;
+        padding-bottom:6px;
+        font-size:12px;
+        gap:15px;
+    }
+
+    .beer-info{
+        right:6%;
+        top:47%;
+        width:32%;
+    }
+
+    .beer-title{
+        font-size:43px;
+        margin:10px 0;
+    }
+
+    .beer-description{
+        font-size:12px;
+        line-height:1.7;
+        min-height:100px;
+    }
+
+    .taste{
+        gap:8px;
+        flex-wrap:wrap;
+        font-size:9px;
+        padding-top:10px;
+    }
+
+    .stage-bottom{
+        bottom:28px;
+        left:6%;
+        right:6%;
+        justify-content:center;
+    }
+
+    .stage-bottom > span{
+        display:none;
+    }
+
+    .beer-select{
+        width:100%;
+        justify-content:space-between;
+        gap:20px;
+    }
+
+    .beer-select button{
+        padding:13px 4px;
+    }
+
+    .origin{
+        grid-template-columns:1fr;
+        gap:40px;
+        padding:65px 8%;
+        text-align:center;
+    }
+
+    .origin-mark img{
+        max-width:240px;
+    }
+
+    .origin h2{
+        font-size:50px;
+    }
+
+    .origin p:not(.eyebrow){
+        margin-left:auto;
+        margin-right:auto;
+    }
+
+    footer{
+        flex-direction:column;
+        text-align:center;
+        gap:15px;
+    }
+
+    footer p{
+        margin:0;
+    }
+
+    .neck-label{
+        font-size:6px;
+    }
+
+    /*
+    Rótulo em celular:
+    mantém a mesma proporção vertical do desktop
+    */
+    .bottle-label{
+        top:52.5%;
+        left:30%;
+        width:40%;
+        height:40%;
+    }
+
+    .bottle-label > img{
+        width:100%;
+        height:100%;
+        object-fit:fill;
+        object-position:center;
+        transform:none;
+    }
+
+    .label-name{
+        font-size:19px;
+    }
+
+    .label-detail{
+        font-size:4px;
+    }
+}
+
+/* =========================
+   ACESSIBILIDADE
+========================= */
+
+@media(prefers-reduced-motion:reduce){
+
+    html{
+        scroll-behavior:auto;
+    }
+
+    *,
+    *::before,
+    *::after{
+        animation:none!important;
+        transition:none!important;
+    }
+
+    .product{
+        will-change:auto;
+    }
+}

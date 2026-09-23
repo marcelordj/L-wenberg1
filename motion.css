@@ -1,0 +1,26 @@
+/* Motion values are driven by the same scroll timeline as the label reveal. */
+.stage,.giant-type,.label-band{transition:none}
+.product{left:35%;height:66%;top:27%;transform-origin:50% 55%}
+.intro{left:auto;right:5%;top:25%;width:25%;max-width:300px}
+.intro .eyebrow,.intro>p:not(.eyebrow){display:none}
+.intro h2{font-size:32px;margin:12px 0}
+.intro .explore{margin-top:8px}
+.beer-info{top:58%;width:24%;max-width:290px;will-change:opacity,transform}
+.bottle-label,.neck-label{will-change:opacity}
+.stage .bottle-label{border-radius:5% / 2%;transform-origin:center;will-change:transform,opacity,filter}
+.stage .beer-info{pointer-events:none}
+.stage .giant-type{will-change:transform,opacity}
+.stage .bottle-label .label-band{box-shadow:inset 13px 0 18px #0003,inset -13px 0 18px #0003}
+.label-shell{position:absolute;top:51%;left:31.2%;width:38.5%;height:38.5%;overflow:hidden;border-radius:5% / 2%;background:#f5eddb}
+.stage .label-shell .bottle-label{top:0;left:0;width:100%;height:100%;border-radius:0}
+.label-shell::after{content:'';position:absolute;inset:0;pointer-events:none;box-shadow:inset 14px 0 18px #0003,inset -14px 0 18px #0004}
+@media(max-width:1000px){.intro{top:27%}.intro h2{font-size:28px}.beer-info{top:57%;width:24%}.beer-title{font-size:48px}.product{height:62%;top:29%}}
+@media(max-width:650px){
+  .stage{min-height:620px}
+  .product{height:54%;top:34%;left:30%}
+  .intro{left:6%;right:auto;top:192px;width:85%;max-width:none}
+  .beer-info{top:45%;width:31%;max-width:none}
+  .beer-title{font-size:43px}
+  .beer-description{font-size:13px;min-height:112px}
+}
+@media(prefers-reduced-motion:reduce){.product,.beer-info,.bottle-label,.neck-label{will-change:auto}}
